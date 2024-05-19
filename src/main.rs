@@ -5,7 +5,7 @@ use std::process;
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
-        println!("Please specify a string to wait for, such as 'fruit'.");
+        println!("Please specify a target string to wait for, such as 'fruit'.");
         println!("Type -h for help.");
         return ();
     }
@@ -18,6 +18,13 @@ fn main() {
             println!("{}", help_text());
             process::exit(0);
         });
+    for ch in instructions.target.chars() {
+        if !ch.is_ascii_alphabetic() {
+            println!("Invalid target string. Should be English letters only.");
+            process::exit(1);
+        }
+    }
+
 
     let mut monkey_output = String::with_capacity(instructions.target.len());
    
@@ -82,7 +89,7 @@ Usage:
     ./monkeyfinity TARGET_STRING [OPTIONS]
 
 TARGET_STRING...
-    - must consist of english letters only (a-z).
+    - must consist of English letters only (a-z).
     - will automatically be converted to lowercase.
 
 Only one string is allowed as the target.

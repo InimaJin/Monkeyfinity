@@ -25,6 +25,9 @@ fn main() {
         }
     }
 
+    if instructions.verbose_level == 0 {
+        println!("{}", monkey_image());
+    }
 
     let mut monkey_output = String::with_capacity(instructions.target.len());
    
@@ -99,4 +102,21 @@ AVAILABLE OPTIONS:
     -v      Verbose output (Warning: Might severely impact performance.)
     -vv     Like -v, but also displays iteration count.
 "
+}
+
+fn monkey_image() -> &'static str {
+r#"
+                        .="=.
+                      _/.-.-.\_     _
+                     ( ( o o ) )    ))
+                      |/  "  \|    //
+      .-------.        \'---'/    //
+     _|~~ ~~  |_       /`"""`\\  ((
+   =(_|_______|_)=    / /_,_\ \\  \\
+     |:::::::::|      \_\\_'__/ \  ))
+     |:::::::[]|       /`  /`~\  |//
+     |o=======.|      /   /    \  /
+     `"""""""""`  ,--`,--'\/\    /
+                   '-- "--'  '--'
+"#
 }

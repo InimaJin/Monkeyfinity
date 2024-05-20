@@ -47,7 +47,7 @@ fn main() {
             else { println!("{} - {}", i, monkey_output) }
         }
     }
-    println!("{}={}\nAfter {} failed words", monkey_output, instructions.target, i);
+    println!("{}={}\nFound after {} failed character sequences.", monkey_output, instructions.target, i);
 }
 
 // Struct holding info for program based on arguments
